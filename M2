@@ -1,0 +1,689 @@
+static void Main(string[] args)
+        {
+        menuprincipal:
+            Console.Clear();
+            Console.WriteLine("\n-------------------------------");
+            Console.WriteLine("|___________Conversor__________|");
+            Console.WriteLine("|          A - Medidas         |");
+            Console.WriteLine("|          B - Moedas          |");
+            Console.WriteLine("|           C - Peso           |");
+            Console.WriteLine("|           D - Sair           |");
+            Console.WriteLine("--------------------------------");
+
+            char opcaoprincipal = 'a';
+
+            Console.WriteLine("\n Selecione uma opção entre A, B, C ou D: ");
+        entradaprincipal:
+            try
+            {
+                opcaoprincipal = char.Parse(Console.ReadLine());
+            }
+
+            catch (Exception)
+            {
+                Console.WriteLine("\n Opção Inválida. Por Favor, escolha uma opção entre A, B, C ou D.\n");
+                goto entradaprincipal;
+            }
+            if (opcaoprincipal == 'a')
+            {
+                opcaoprincipal = 'A';
+            }
+            else if (opcaoprincipal == 'b')
+            {
+                opcaoprincipal = 'B';
+            }
+            else if (opcaoprincipal == 'c')
+            {
+                opcaoprincipal = 'C';
+            }
+            else if (opcaoprincipal == 'd')
+            {
+                opcaoprincipal = 'D';
+            }
+
+            switch (opcaoprincipal)
+            {
+                case 'A': //Conversor de medidas
+                    {
+                        char opcaomedida = 'a';
+                        Console.Clear();
+                    menumedidas:
+                        Console.WriteLine("\n -------------------------------");
+                        Console.WriteLine("|_____Conversor de medidas_____|");
+                        Console.WriteLine("|         A - Métricas         |");
+                        Console.WriteLine("|       B - Volumétricas       |");
+                        Console.WriteLine("| C - Voltar ao menu principal |");
+                        Console.WriteLine("--------------------------------");
+
+                        Console.WriteLine("\n Selecione uma opção entre A - B ou C: \n");
+                    entradamedidas:
+
+                        try
+                        {
+                            opcaomedida = char.Parse(Console.ReadLine());
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre A, B ou C.\n");
+                            goto entradamedidas;
+                        }
+
+                        if (opcaomedida == 'a')
+                        {
+                            opcaomedida = 'A';
+                        }
+                        else if (opcaomedida == 'b')
+                        {
+                            opcaomedida = 'B';
+                        }
+                        else if (opcaomedida == 'c')
+                        {
+                            opcaomedida = 'C';
+                        }
+
+                        switch (opcaomedida)
+                        {
+
+                            case 'A'://Conversor métrico
+                                {
+                                    double opcao1;
+
+                                    Console.Clear();
+                                    Console.WriteLine("\n A opção escolhida foi: conversor métrico.");
+                                menumetrico:
+                                    Console.WriteLine("\n-------------------------------");
+                                    Console.WriteLine("|_______Conversor métrico_______|");
+                                    Console.WriteLine("|   1 - Metro para centímetro   |");
+                                    Console.WriteLine("|   2 - Centímetro para metro   |");
+                                    Console.WriteLine("|   3 - Voltar ao menu anterior |");
+                                    Console.WriteLine("--------------------------------");
+                                    Console.WriteLine("\nSelecione uma opção entre 1 - 2 ou 3: \n");
+
+                                entradametrica:
+                                    try
+                                    {
+                                        opcao1 = double.Parse(Console.ReadLine());
+                                    }
+
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre 1, 2 ou 3.\n");
+                                        goto entradametrica;
+                                    }
+
+                                    switch (opcao1)
+                                    {
+
+                                        case 1://Metro para centimetro.
+                                            {
+                                                double var1, result;
+                                                Console.Clear();
+                                                Console.WriteLine("\nA opção escolhida foi: Metro para centímetro.\n");
+                                                Console.WriteLine("Insira o valor em metros que se deseja converter para centímetros: \n");
+                                            entradavar1:
+                                                try
+                                                {
+                                                    var1 = double.Parse(Console.ReadLine());
+                                                }
+
+                                                catch (Exception)
+                                                {
+                                                    Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                                    goto entradavar1;
+                                                }
+                                                result = var1 * 100;
+                                                Console.WriteLine("\nO valor da conversão em centímetros é de: " + result + "cm.\n \n Pressione ENTER para continuar...\n");
+                                                Console.ReadLine();
+                                                Console.Clear();
+                                                goto menumetrico;
+                                            }
+
+                                        case 2://Centimetro para metro.
+                                            {
+
+                                                double var1, result;
+                                                Console.Clear();
+                                                Console.WriteLine("\nA opção escolhida foi: Centímetro para metro.\n");
+                                                Console.WriteLine("Insira o valor em centímetros que se deseja converter para metros: \n");
+                                            entradavar1:
+                                                try
+                                                {
+                                                    var1 = double.Parse(Console.ReadLine());
+                                                }
+
+                                                catch (Exception)
+                                                {
+                                                    Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                                    goto entradavar1;
+                                                }
+                                                result = var1 / 100;
+                                                Console.WriteLine("\nO valor da conversão em metros é de: " + result + "m.\n \n Pressione ENTER para continuar...\n");
+                                                Console.ReadLine();
+                                                Console.Clear();
+                                                goto menumetrico;
+                                            }
+
+                                        case 3://Voltar para o menu anterior.
+                                            {
+                                                Console.Clear();
+                                                goto menumedidas;
+                                            }
+
+                                        default:
+                                            {
+                                                Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre 1, 2 ou 3.\n");
+                                                goto entradametrica;
+                                            }
+
+                                    }
+                                }
+
+                            case 'B': //Conversor Volumétrico
+                                {
+
+                                    double opcao1;
+                                    Console.Clear();
+                                    Console.WriteLine("\n A opção escolhida foi: conversor volumétrico.");
+                                menuvolumetrico:
+                                    Console.WriteLine("\n-------------------------------");
+                                    Console.WriteLine("|______Conversor volumétrico______|");
+                                    Console.WriteLine("|    1 - Litro para mililitro     |");
+                                    Console.WriteLine("|    2 - Mililitro para litro     |");
+                                    Console.WriteLine("|    3 - Voltar ao menu anterior  |");
+                                    Console.WriteLine("--------------------------------\n");
+                                    Console.WriteLine("Selecione uma opção entre 1 - 2 ou 3: \n");
+
+                                entradavolumetrica:
+                                    try
+                                    {
+                                        opcao1 = double.Parse(Console.ReadLine());
+                                    }
+
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre 1, 2 ou 3.\n");
+                                        goto entradavolumetrica;
+                                    }
+
+                                    switch (opcao1)
+                                    {
+
+                                        case 1://Litro para ml
+                                            {
+                                                double var1, result;
+                                                Console.Clear();
+                                                Console.WriteLine("\nA opção escolhida foi: Litro para mililitro.\n");
+                                                Console.WriteLine("Insira o valor em litros que se deseja converter para mililitros: \n");
+                                            entradavar1:
+                                                try
+                                                {
+                                                    var1 = double.Parse(Console.ReadLine());
+                                                }
+
+                                                catch (Exception)
+                                                {
+                                                    Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                                    goto entradavar1;
+                                                }
+                                                result = var1 * 1000;
+                                                Console.WriteLine("\nO valor da conversão de litros é de: " + result + "ml.\n \n Pressione ENTER para continuar...\n");
+                                                Console.ReadLine();
+                                                Console.Clear();
+                                                goto menuvolumetrico;
+                                            }
+
+                                        case 2://Ml para litro
+                                            {
+                                                double var1, result;
+                                                Console.Clear();
+                                                Console.WriteLine("\nA opção escolhida foi: Mililitro para litro.\n");
+                                                Console.WriteLine("Insira o valor em mililitros que se deseja converter para litros: \n");
+                                            entradavar1:
+                                                try
+                                                {
+                                                    var1 = double.Parse(Console.ReadLine());
+                                                }
+
+                                                catch (Exception)
+                                                {
+                                                    Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                                    goto entradavar1;
+                                                }
+                                                result = var1 / 1000;
+                                                Console.WriteLine("\nO valor da conversão de litros é de: " + result + "l.\n \n Pressione ENTER para continuar...\n");
+                                                Console.ReadLine();
+                                                Console.Clear();
+                                                goto menuvolumetrico;
+
+                                            }
+
+                                        case 3://Voltar para o menu anterior.
+                                            {
+                                                Console.Clear();
+                                                goto menumedidas;
+
+                                            }
+
+                                        default:
+                                            {
+                                                Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre 1, 2 ou 3.\n");
+                                                goto entradavolumetrica;
+                                            }
+
+                                    }
+
+                                }
+
+                            case 'C': //Voltar para o menu principal.
+                                {
+                                    goto menuprincipal;
+                                }
+                            default:
+                                {
+                                    Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre A, B ou C.\n");
+                                    goto entradamedidas;
+                                }
+                        }
+                    }
+                case 'B': //Converso de Moedas
+                    {
+                        {
+                            char opcaomedida = 'a';
+                            Console.Clear();
+                        menumoedas:
+                            Console.WriteLine("\n -------------------------------");
+                            Console.WriteLine("|_____Conversor de moedas______|");
+                            Console.WriteLine("|         A - Dolar            |");
+                            Console.WriteLine("|         B - Euro             |");
+                            Console.WriteLine("| C - Voltar ao menu principal |");
+                            Console.WriteLine("--------------------------------");
+
+                            Console.WriteLine("\n Selecione uma opção entre A - B ou C: \n");
+                        entradamoedas:
+
+                            try
+                            {
+                                opcaomedida = char.Parse(Console.ReadLine());
+                            }
+                            catch (Exception)
+                            {
+                                Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre A, B ou C.\n");
+                                goto entradamoedas;
+                            }
+
+                            if (opcaomedida == 'a')
+                            {
+                                opcaomedida = 'A';
+                            }
+                            else if (opcaomedida == 'b')
+                            {
+                                opcaomedida = 'B';
+                            }
+                            else if (opcaomedida == 'c')
+                            {
+                                opcaomedida = 'C';
+                            }
+
+                            switch (opcaomedida)
+                            {
+
+                                case 'A'://Conversor Dolar
+                                    {
+                                        double opcao1;
+
+                                        Console.Clear();
+                                        Console.WriteLine("\n A opção escolhida foi: Dolar.");
+                                    menudolar:
+                                        Console.WriteLine("\n-------------------------------");
+                                        Console.WriteLine("|_______Conversor de Dolar______|");
+                                        Console.WriteLine("|      1 - Dolar para Real      |");
+                                        Console.WriteLine("|      2 - Real para Dolar      |");
+                                        Console.WriteLine("|   3 - Voltar ao menu anterior |");
+                                        Console.WriteLine("---------------------------------");
+                                        Console.WriteLine("\nSelecione uma opção entre 1,  2 ou 3: \n");
+
+                                    entradaconvdolar:
+                                        try
+                                        {
+                                            opcao1 = double.Parse(Console.ReadLine());
+                                        }
+
+                                        catch (Exception)
+                                        {
+                                            Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre 1, 2 ou 3.\n");
+                                            goto entradaconvdolar;
+                                        }
+
+                                        switch (opcao1)
+                                        {
+
+                                            case 1://Dolar par Real.
+                                                {
+                                                    double dolar, real, taxa;
+                                                    Console.Clear();
+                                                    Console.WriteLine("\nA opção escolhida foi: Dolar para Real.\n");
+                                                    Console.WriteLine("Insira a quantidade de Dolar a ser convertida para Real: \n");
+                                                entradadolar:
+                                                    try
+                                                    {
+                                                        dolar = double.Parse(Console.ReadLine());
+                                                    }
+
+                                                    catch (Exception)
+                                                    {
+                                                        Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                                        goto entradadolar;
+                                                    }
+                                                    Console.WriteLine("\nInsira a cotação atual do Dolar: \n");
+                                                entradataxa:
+                                                    try
+                                                    {
+                                                        taxa = double.Parse(Console.ReadLine());
+                                                    }
+
+                                                    catch (Exception)
+                                                    {
+                                                        Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                                        goto entradataxa;
+                                                    }
+                                                    real = Math.Round(dolar * taxa, 2);
+                                                    Console.WriteLine("\nA quantidade de reais é de: " + real + "\n \n Pressione ENTER para continuar...\n");
+                                                    Console.ReadLine();
+                                                    Console.Clear();
+                                                    goto menudolar;
+                                                }
+
+                                            case 2://Real para Dolar.
+                                                {
+
+                                                    double dolar, real, taxa;
+                                                    Console.Clear();
+                                                    Console.WriteLine("\nA opção escolhida foi: Real para Dolar.\n");
+                                                    Console.WriteLine("Insira a quantidade de Real a ser convertida para Dolar: \n");
+                                                entradareal:
+                                                    try
+                                                    {
+                                                        real = double.Parse(Console.ReadLine());
+                                                    }
+
+                                                    catch (Exception)
+                                                    {
+                                                        Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                                        goto entradareal;
+                                                    }
+                                                    Console.WriteLine("Insira a cotação atual do Dolar: \n");
+                                                entradataxa:
+                                                    try
+                                                    {
+                                                        taxa = double.Parse(Console.ReadLine());
+                                                    }
+
+                                                    catch (Exception)
+                                                    {
+                                                        Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                                        goto entradataxa;
+                                                    }
+                                                    dolar = Math.Round(real / taxa, 2);
+                                                    Console.WriteLine("\nA quantidade de dolares é de: " + dolar + "\n \n Pressione ENTER para continuar...\n");
+                                                    Console.ReadLine();
+                                                    Console.Clear();
+                                                    goto menudolar;
+                                                }
+
+                                            case 3://Voltar para o menu anterior.
+                                                {
+                                                    Console.Clear();
+                                                    goto menumoedas;
+                                                }
+
+                                            default:
+                                                {
+                                                    Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre 1, 2 ou 3.\n");
+                                                    goto entradaconvdolar;
+                                                }
+
+                                        }
+                                    }
+
+                                case 'B': //Conversor Euro
+                                    {
+
+                                        double opcao1;
+
+                                        Console.Clear();
+                                        Console.WriteLine("\n A opção escolhida foi: Euro.");
+                                    menueuro:
+                                        Console.WriteLine("\n-------------------------------");
+                                        Console.WriteLine("|_______Conversor de Dolar______|");
+                                        Console.WriteLine("|       1 - Euro para Real      |");
+                                        Console.WriteLine("|       2 - Real para Euro      |");
+                                        Console.WriteLine("|   3 - Voltar ao menu anterior |");
+                                        Console.WriteLine("---------------------------------");
+                                        Console.WriteLine("\nSelecione uma opção entre 1,  2 ou 3: \n");
+
+                                    entradaconveuro:
+                                        try
+                                        {
+                                            opcao1 = double.Parse(Console.ReadLine());
+                                        }
+
+                                        catch (Exception)
+                                        {
+                                            Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre 1, 2 ou 3.\n");
+                                            goto entradaconveuro;
+                                        }
+
+                                        switch (opcao1)
+                                        {
+
+                                            case 1://Euro para Real.
+                                                {
+                                                    double euro, real, taxa;
+                                                    Console.Clear();
+                                                    Console.WriteLine("\nA opção escolhida foi: Euro para Real.\n");
+                                                    Console.WriteLine("Insira a quantidade de Euro a ser convertida para Real: \n");
+                                                entradaeuro:
+                                                    try
+                                                    {
+                                                        euro = double.Parse(Console.ReadLine());
+                                                    }
+
+                                                    catch (Exception)
+                                                    {
+                                                        Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                                        goto entradaeuro;
+                                                    }
+                                                    Console.WriteLine("Insira a cotação atual do Euro: \n");
+                                                entradataxa:
+                                                    try
+                                                    {
+                                                        taxa = double.Parse(Console.ReadLine());
+                                                    }
+
+                                                    catch (Exception)
+                                                    {
+                                                        Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                                        goto entradataxa;
+                                                    }
+                                                    real = Math.Round(euro * taxa, 2);
+                                                    Console.WriteLine("\nA quantidade de reais é de: " + real + "\n \n Pressione ENTER para continuar...\n");
+                                                    Console.ReadLine();
+                                                    Console.Clear();
+                                                    goto menueuro;
+                                                }
+
+                                            case 2://Real para Euro.
+                                                {
+
+                                                    double euro, real, taxa;
+                                                    Console.Clear();
+                                                    Console.WriteLine("\nA opção escolhida foi: Real para Euro.\n");
+                                                    Console.WriteLine("Insira a quantidade de Real a ser convertida para Euro: \n");
+                                                entradareal:
+                                                    try
+                                                    {
+                                                        real = double.Parse(Console.ReadLine());
+                                                    }
+
+                                                    catch (Exception)
+                                                    {
+                                                        Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                                        goto entradareal;
+                                                    }
+                                                    Console.WriteLine("\nInsira a cotação atual do Euro: \n");
+                                                entradataxa:
+                                                    try
+                                                    {
+                                                        taxa = double.Parse(Console.ReadLine());
+                                                    }
+
+                                                    catch (Exception)
+                                                    {
+                                                        Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                                        goto entradataxa;
+                                                    }
+                                                    euro = Math.Round(real / taxa, 2);
+                                                    Console.WriteLine("\nA quantidade de dolares é de: " + euro + "\n \n Pressione ENTER para continuar...\n");
+                                                    Console.ReadLine();
+                                                    Console.Clear();
+                                                    goto menueuro;
+                                                }
+
+                                            case 3://Voltar para o menu anterior.
+                                                {
+                                                    Console.Clear();
+                                                    goto menumoedas;
+                                                }
+
+                                            default:
+                                                {
+                                                    Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre 1, 2 ou 3.\n");
+                                                    goto entradaconveuro;
+                                                }
+
+                                        }
+
+                                    }
+
+                                case 'C': //Voltar para o menu principal.
+                                    {
+                                        Console.Clear();
+                                        goto menuprincipal;
+                                    }
+                                default:
+                                    {
+                                        Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre A, B ou C.\n");
+                                        goto entradamoedas;
+                                    }
+                            }
+                        }
+
+                    }
+                case 'C': //Conversor de Peso
+                    {
+                        double opcao1;
+
+                        Console.Clear();
+                    menupeso:
+                        Console.WriteLine("\n -------------------------------");
+                        Console.WriteLine("|______Conversor de peso_______|");
+                        Console.WriteLine("|    1 - Quilo para grama      |");
+                        Console.WriteLine("|    2 - Grama para quilo      |");
+                        Console.WriteLine("| 3 - Voltar ao menu principal |");
+                        Console.WriteLine("--------------------------------");
+
+                        Console.WriteLine("\n Selecione uma opção entre 1, 2 ou 3: \n");
+
+                    entradaconvpeso:
+                        try
+                        {
+                            opcao1 = double.Parse(Console.ReadLine());
+                        }
+
+                        catch (Exception)
+                        {
+                            Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre 1, 2 ou 3.\n");
+                            goto entradaconvpeso;
+                        }
+
+                        switch (opcao1)
+                        {
+
+                            case 1://Quilo para grama.
+                                {
+                                    double quilo, grama;
+                                    Console.Clear();
+                                    Console.WriteLine("\nA opção escolhida foi: Quilo para grama.\n");
+                                    Console.WriteLine("Insira a quantidade de Quilos a ser convertida para gramas: \n");
+                                entradaquilo:
+                                    try
+                                    {
+                                        quilo = double.Parse(Console.ReadLine());
+                                    }
+
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                        goto entradaquilo;
+                                    }
+                                    grama = quilo * 1000;
+                                    Console.WriteLine("\nA quantidade de gramas é de: " + grama + "\n \n Pressione ENTER para continuar...\n");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto menupeso;
+                                }
+
+                            case 2://Grama par quilo.
+                                {
+
+                                    double grama, quilo;
+                                    Console.Clear();
+                                    Console.WriteLine("\nA opção escolhida foi: Grama para quilo.\n");
+                                    Console.WriteLine("Insira a quantidade de Gramas a ser convertida para Quilos: \n");
+                                entradagrama:
+                                    try
+                                    {
+                                        grama = double.Parse(Console.ReadLine());
+                                    }
+
+                                    catch (Exception)
+                                    {
+                                        Console.WriteLine("\nOpção Inválida. Por Favor, entre com um valor numérico.\n");
+                                        goto entradagrama;
+                                    }
+                                    quilo = grama / 1000;
+                                    Console.WriteLine("\nA quantidade de quilos é de: " + quilo + "\n \n Pressione ENTER para continuar...\n");
+                                    Console.ReadLine();
+                                    Console.Clear();
+                                    goto menupeso;
+                                }
+
+                            case 3://Voltar para o menu principal.
+                                {
+                                    Console.Clear();
+                                    goto menuprincipal;
+                                }
+
+                            default:
+                                {
+                                    Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre 1, 2 ou 3.\n");
+                                    goto entradaconvpeso;
+                                }
+
+                        };
+                    }
+                case 'D': //Saída
+                    {
+                        goto saida;
+                    }
+                default:
+                    {
+                        Console.WriteLine("\nOpção Inválida. Por Favor, escolha uma opção entre A, B, C ou D.\n");
+                        goto entradaprincipal;
+                    }
+            }
+
+        saida:;
+
+
+        }
